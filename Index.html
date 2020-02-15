@@ -1,0 +1,61 @@
+<html>
+	<title>M Write JavaScript For Test</title>
+	<header>		
+		<h1 style="background-color: chartreuse;text-align: center;">TEST WRITE CODE JAVASCRIPT 1 </h1>
+	</header>
+<body>
+	<div style="background-color: rgb(204, 150, 79);">
+		<h2 id="Ramdom" style="color: rgb(68, 0, 255);">Random 1-100 Show 10 Number</h2>
+		<h3 id="random" style="color: rgb(251, 255, 0);" ></h3>
+		<h2 id="sumnumber" style="color: red;">Sum Random 10 Number</h2>
+		<h3 id="sumnumberShow" style="color: rgb(38, 0, 255);"></h3>
+		<h2 id="GetMinMax" style="color: green;">Get Min And Max Random 10 Number</h2>
+		<h3 id="getminmaxshow" style="color: rgb(85, 56, 56);"></h3>
+	</div>
+
+	<script>
+	    var l_randomArrayNumber = [];
+		var lValues = 100;
+		var lcount = 10;
+
+		function myRandom() {
+					var x = 0;
+					var lRandonNumber = [];
+					for(var i = 0; i < lcount;i++)
+					{
+						x = Math.floor((Math.random() * lValues) + 1);
+						lRandonNumber.push(x);
+					}					
+					return(lRandonNumber);
+		}
+		l_randomArrayNumber = myRandom();		    
+
+		var mySumNumber1 = l_randomArrayNumber.reduce(function(a,b){
+	       		return(a+b)
+		});
+		
+		function mySelectMin(){
+	          var bmyMin = lValues;
+              var bmyMax = 0;
+              var strMinMax;			  
+			  for(var bx = 0;bx < l_randomArrayNumber.length;bx++){			        
+			        if(bmyMin > l_randomArrayNumber[bx]){
+					    bmyMin = l_randomArrayNumber[bx];
+					}
+					else if(bmyMax < l_randomArrayNumber[bx])
+					{
+					   bmyMax = l_randomArrayNumber[bx];
+					}
+	            }
+				strMinMax = 'Min : ' + bmyMin +'   '+'Max : '+ bmyMax
+           return(strMinMax);				
+		}
+
+	
+	document.getElementById("random").innerHTML='Total = ' + l_randomArrayNumber;	
+	document.getElementById("sumnumberShow").innerHTML='Total = ' + mySumNumber1;
+	document.getElementById("getminmaxshow").innerHTML='Total = ' + mySelectMin();
+	
+	</script>
+</body>
+</html>
